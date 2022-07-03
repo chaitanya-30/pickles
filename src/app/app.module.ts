@@ -14,7 +14,7 @@ import { ProductpageComponent } from './productpage/productpage.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 
 const approutes:Routes=[{path:'',component:HomeComponent},
-// {path:'home',component:HomeComponent},
+{path:'home',component:HomeComponent},
 {
   path:'product',component:ProductpageComponent
 },
