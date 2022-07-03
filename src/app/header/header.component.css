@@ -1,0 +1,7 @@
+svg{
+    cursor: pointer;
+}
+svg:hover, .navbar-brand:hover{
+    color: crimson;
+    transform: scale(1.1);
+}

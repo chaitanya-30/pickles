@@ -1,0 +1,58 @@
+<div class="container">
+    <h3>Cart Page</h3>
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table mt-3">
+    
+                <tbody *ngFor="let pickle of cartitems">
+                  <tr>
+                   <td><img src='{{pickle.img}}'></td>
+                    <td>{{pickle.name}}</td>
+                 
+                    <td> <label >Weight:  </label><select #selectp
+                         (change)="changeprice(pickle,$event.target.value)">
+                         <option>Choose</option>
+                        <option>1kg</option>
+                        <option>500g</option>
+                        <option>250g</option>
+                        
+                    </select></td>
+                    <!-- <td>{{pickle.price | currency:'₹'}}</td> -->
+
+                    <td *ngIf="selectp.value=='1kg'">{{pickle.agprice | currency:'₹'}}</td>
+                    <td *ngIf="selectp.value=='250g'">{{pickle.agprice/4 | currency:'₹'}}</td>
+                    <td *ngIf="selectp.value=='500g'">{{pickle.agprice/2 | currency:'₹'}}</td>
+                        <td><button class="btn btn-danger" (click)="deletecartitem(pickle)">Delete</button></td>
+                  </tr>
+                  <!-- <td> {{grandTotal+(pickle.price*parseInt(selectp.value))/1000 |currency:'₹'}}</td> -->
+                  <!-- <button class="btn btn-danger" (click)="gettotal(pickle)">Get Total</button> -->
+                </tbody>
+               
+            
+              </table>
+            
+        </div>
+        <div class="col-md-4">
+            <h4>Your cart Details</h4>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Total Items:</td>
+                        <td>{{cartitems.length}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total Amount: 
+                        </td>
+                        <td >{{grandTotal | currency:'₹'}}
+                           
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+        </div>
+        </div>
+
